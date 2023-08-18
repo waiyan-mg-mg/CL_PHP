@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+nav {
+  padding: 5px 3px;
+  background-color: #9c9c9c;
+}
+
+ul {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+ul li,
+li > a {
+  padding: 10px 20px;
+  background-color: #5f4f4f;
+  color: white;
+  border-radius: 10px;
+}
