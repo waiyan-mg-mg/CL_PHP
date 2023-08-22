@@ -50,12 +50,24 @@
 </body>
 
 <?php
+function checkPasswordMatch($pass1, $pass2)
+{
+    if ($pass1 == $pass2) {
+        return true;
+    } else {
+        echo "passowrd didn't match";
+        return false;
+    }
+}
 if (isset($_POST['submit'])) {
-    $hashed_mail = password_hash($_POST['eamil'], PASSWORD_BCRYPT);
-    $hashed_pass = password_hash($_POST['password'], PASSWORD_BCRYPT);
-    setcookie('user_mail',  $hashed_mail);
-    setcookie('user_pass',   $hashed_pass);
-    header("Location:signIn.php");
+    $passwordMatch =  checkPasswordMatch($_POST['password'], $_POST['confirmPassword']);
+    if ($passwordMatch) {
+        $hashed_mail = password_hash($_POST['eamil'], PASSWORD_BCRYPT);
+        $hashed_pass = password_hash($_POST['password'], PASSWORD_BCRYPT);
+        setcookie('user_mail',  $hashed_mail);
+        setcookie('user_pass',   $hashed_pass);
+        header("Location:signIn.php");
+    }
 }
 ?>
 
