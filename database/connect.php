@@ -1,6 +1,6 @@
 <?php
 
 $connection = mysqli_connect('localhost', 'root', '', 'order test');
-if ($connection) {
-    echo "SUCCESS";
+if (!$connection) {
+    echo "Fail to connect";
 }
