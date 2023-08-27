@@ -32,7 +32,7 @@
                 <td>{$singleData['id']}</td>
                 <td>{$singleData['task']}</td>
                 <td>{$singleData['create_at']}</td>
-                <td><a href=''>Update</a> <a href='./delete.php?id={$singleData['id']}'>Delete</a></td>
+    <td><a href='./update.php?id={$singleData['id']}&task={$singleData['task']}'>Update</a> <a href='./delete.php?id={$singleData['id']}'>Delete</a></td>
             </tr>";
             }
             ?>
