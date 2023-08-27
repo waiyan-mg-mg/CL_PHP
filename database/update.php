@@ -8,24 +8,29 @@
     </head>
 
     <body>
-        <?php
-    require("./connect.php");
+    <?php
+    
     $id = $_GET['id'];
     $task = $_GET['task'];
     ?>
-        <form method="post">
-            <input type="text" name='updated_task' value='<?php echo $task; ?>'>
-            <button name='update_btn'>update</button>
-        </form>
-        <?php
+      <?php
     if (isset($_POST['update_btn'])) {
-        if (!$_POST['updated_task'] && !$_POST['update_task'] == $task) {
-            echo "data passs";
+          $updateData = $_POST['updated_task'];
+        if ($updateData && $updateData != $task) {
+              $query = "UPDATE todo SET task='$updateData' WHERE id=$id";
+              require("./connect.php");
+              mysqli_query($connection,$query);
+              header("Location:read.php");
         } else {
             echo "fail data pas";
         }
     }
     ?>
+        <form method="post">
+            <input type="text" name='updated_task' value='<?php echo $task; ?>'>
+            <button name='update_btn'>update</button>
+        </form>
+      
     </body>
 
 </html>
